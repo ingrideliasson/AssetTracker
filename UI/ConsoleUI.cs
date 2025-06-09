@@ -19,8 +19,8 @@ namespace AssetTracker.UI
 
         public async Task RunAsync()
         {
-            CurrencyRates liveRates = await LiveCurrencyFetcher.FetchRatesAsync();
-            var rates = liveRates.ConversionRates; // dictionary mapping from currency codes to rates
+            CurrencyRates liveRates = await LiveCurrencyFetcher.FetchRatesAsync(); // Fetch rates
+            var rates = liveRates.ConversionRates; // Dictionary mapping from currency codes to rates
 
             if (rates != null)
             {
@@ -34,7 +34,7 @@ namespace AssetTracker.UI
 
             while (true)
             {
-                ShowAssets();
+                ShowAssets(); // Start by showing the assets (sample data at start of the program)
                 Console.WriteLine("Enter 'a' to add an asset or 'q' to quit the program.");
                 string input = Console.ReadLine() ?? "".ToLower().Trim();
 
@@ -55,7 +55,7 @@ namespace AssetTracker.UI
             }
         }
 
-        public string PromptOffice()
+        public string PromptOffice() // Helper method to keep asking for an office location until it is valid
         {
             while (true)
             {
@@ -69,7 +69,7 @@ namespace AssetTracker.UI
             }
         }
 
-        public decimal PromptPrice()
+        public decimal PromptPrice() // Helper method to keep asking for a valid price
         {
             while (true)
             {
@@ -83,7 +83,7 @@ namespace AssetTracker.UI
             }
         }
 
-        public DateTime PromptDate()
+        public DateTime PromptDate() // Helper method to keep asking for a valid date
         {
             while (true)
             {
@@ -112,13 +112,13 @@ namespace AssetTracker.UI
             string inputOffice = PromptOffice();
             DateTime inputDate = PromptDate();
 
-            Currency targetCurrency = OfficeToCurrency.GetCurrency(inputOffice);
-            decimal convertedAmount = CurrencyConverter.Convert(inputPriceUSD, targetCurrency.Code, rates);
+            Currency targetCurrency = OfficeToCurrency.GetCurrency(inputOffice); // Get target currency from office
+            decimal convertedAmount = CurrencyConverter.Convert(inputPriceUSD, targetCurrency.Code, rates); // Convert USD to target currency
 
             Price priceLocal = new Price(convertedAmount, targetCurrency);
             Price priceUSD = new Price(inputPriceUSD, Currency.USD);
 
-            Asset asset = AssetFactory.Create(inputType, inputBrand, inputModel, inputOffice, inputPriceUSD, inputDate, rates);
+            Asset asset = AssetFactory.Create(inputType, inputBrand, inputModel, inputOffice, inputPriceUSD, inputDate, rates); // Use the helper method to add an asset in a simpler way
             _assetManager.AddAsset(asset);
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\nAsset successfully added!");
@@ -140,7 +140,7 @@ namespace AssetTracker.UI
 
             foreach (var asset in assets)
             {
-                (string assetColor, bool isExpired) = GetExpirationDate.CheckDate(asset.PurchaseDate);
+                (string assetColor, bool isExpired) = GetExpirationDate.CheckDate(asset.PurchaseDate); // Check expiration date of asset and which color to print in
 
                 // Add emoji if expired
                 string purchaseDateDisplay = asset.PurchaseDate.ToString("yyyy-MM-dd");

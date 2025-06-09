@@ -2,9 +2,9 @@ using AssetTracker.Models;
 
 namespace AssetTracker.Services
 {
-    public static class OfficeToCurrency
+    public static class OfficeToCurrency // Helper function to map office location to the right currency
     {
-        public static bool IsValidOffice(string office)
+        public static bool IsValidOffice(string office) // Validate user input
         {
             return office.ToLower() switch
             {

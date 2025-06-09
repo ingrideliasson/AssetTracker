@@ -12,3 +12,4 @@
 /Users/ingrideliasson/Desktop/Lexicon/csnet/miniprojects/AssetTracker/obj/Debug/net9.0/Project3.pdb
 /Users/ingrideliasson/Desktop/Lexicon/csnet/miniprojects/AssetTracker/obj/Debug/net9.0/Project3.genruntimeconfig.cache
 /Users/ingrideliasson/Desktop/Lexicon/csnet/miniprojects/AssetTracker/obj/Debug/net9.0/ref/Project3.dll
+/Users/ingrideliasson/Desktop/Lexicon/csnet/miniprojects/AssetTracker/obj/Debug/net9.0/Project3.sourcelink.json

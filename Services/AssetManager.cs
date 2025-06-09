@@ -6,6 +6,7 @@ namespace AssetTracker.Services
     {
         private readonly List<Asset> _assets = new();
 
+        // Sample data (ChatGPT generated)
         public void SeedTestData(Dictionary<string, decimal> rates)
         {
             _assets.Add(AssetFactory.Create("Laptop", "Dell", "XPS 13", "Toronto", 1200m, DateTime.Parse("2023-05-01"), rates));
@@ -31,7 +32,7 @@ namespace AssetTracker.Services
 
         public IReadOnlyList<Asset> GetAllAssets()
         {
-            //sort by office then purchase date
+            // Sort by office then purchase date
             List<Asset> sortedAssets = _assets.OrderBy(a => a.Office)
                                                .ThenBy(a => a.PurchaseDate)
                                                .ToList();

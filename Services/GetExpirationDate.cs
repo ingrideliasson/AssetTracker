@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace AssetTracker.Helpers
 {
-    public static class GetExpirationDate
+    public static class GetExpirationDate // Helper function to check the expiration date of assets
     {
         public static (string, bool) CheckDate(DateTime purchaseDate)
         {

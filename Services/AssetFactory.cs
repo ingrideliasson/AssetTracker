@@ -7,6 +7,7 @@ namespace AssetTracker.Services
 
     public static class AssetFactory
     {
+        // Helper method to simplify adding new assets
         public static Asset Create(string type, string brand, string model, string office, decimal priceUsdAmount, DateTime purchaseDate, Dictionary<string, decimal> rates)
         {
             var localCurrency = OfficeToCurrency.GetCurrency(office);

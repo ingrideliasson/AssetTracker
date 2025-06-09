@@ -25,14 +25,6 @@ namespace AssetTracker.Models
             PurchaseDate = purchaseDate;
         }
 
-        public Asset(string type, string brand, string model, string office, decimal priceUsdAmount, Currency localCurrency, decimal priceLocalAmount, DateTime purchaseDate)
-        : this(type, brand, model, office,
-               new Price(priceUsdAmount, Currency.USD),
-               new Price(priceLocalAmount, localCurrency),
-               purchaseDate)
-    {
-    }
-
 
         public override string ToString()
         {
